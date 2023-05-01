@@ -1,5 +1,5 @@
 node_modules
-# dist
+dist
 .parcel-cache
 
 # https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored

@@ -1,1 +1,0 @@
-{"mappings":";;;;;;;;ACAA;AAEA,SAAS,4CAAS;IAChB,qBAAO,gCAAC,aAAI;AACd;;ADJA","sources":["packages/react/toggle/src/index.ts","packages/react/toggle/src/Toggle.tsx"],"sourcesContent":["export * from './Toggle';\n","import React from 'react';\n\nfunction Toggle() {\n  return <div>Toggle</div>;\n}\n\nexport { Toggle };\n"],"names":[],"version":3,"file":"index.module.js.map"}

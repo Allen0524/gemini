@@ -1,1 +1,0 @@
-{"mappings":"AAEA,sCAEC","sources":["packages/react/avatar/src/packages/react/avatar/src/Avatar.tsx","packages/react/avatar/src/packages/react/avatar/src/index.ts","packages/react/avatar/src/index.ts"],"sourcesContent":[null,null,"export * from './Avatar';\n"],"names":[],"version":3,"file":"index.d.ts.map"}
