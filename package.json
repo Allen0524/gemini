@@ -10,7 +10,8 @@
   "scripts": {
     "storybook": "start-storybook -p 9009 --ci",
     "dev": "yarn storybook",
-    "build": "parcel build 'packages/*/*' --no-cache"
+    "build": "parcel build 'packages/*/*' --no-cache",
+    "publish:stable": "yarn workspaces foreach -pv --exclude gemini npm publish --tolerate-republish --access public"
   },
   "dependencies": {
     "react": "^18.2.0",

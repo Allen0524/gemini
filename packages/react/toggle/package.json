@@ -12,5 +12,9 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Allen0524/gemini.git"
   }
 }
