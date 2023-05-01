@@ -1,0 +1,16 @@
+{
+  "name": "@gemini-ui/react-toggle",
+  "version": "1.0.0",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "include": ["packages"],
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "sourceMap": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "pretty": true,
+    "target": "ES2018",
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types"]
+  }
+}
