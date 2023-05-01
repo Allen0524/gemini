@@ -1,0 +1,1 @@
+{"mappings":";;;;;;;;ACAA;AAEA,SAAS,4CAAS;IAChB,qBAAO,gCAAC,aAAI;AACd;;ADJA","sources":["packages/react/avatar/src/index.ts","packages/react/avatar/src/Avatar.tsx"],"sourcesContent":["export * from './Avatar';\n","import React from 'react';\n\nfunction Avatar() {\n  return <div>Avatar</div>;\n}\n\nexport { Avatar };\n"],"names":[],"version":3,"file":"index.module.js.map"}
