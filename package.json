@@ -11,7 +11,8 @@
     "storybook": "start-storybook -p 9009 --ci",
     "dev": "yarn storybook",
     "build": "parcel build 'packages/*/*' --no-cache",
-    "publish:stable": "yarn workspaces foreach -pv --exclude gemini npm publish --tolerate-republish --access public"
+    "publish:stable": "yarn clean && yarn build && yarn workspaces foreach -pv --exclude gemini npm publish --tolerate-republish --access public",
+    "clean": "yarn workspaces foreach -pv --exclude gemini run clean"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -28,6 +29,8 @@
     "@types/jest-axe": "^3.5.5",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
     "eslint": "^8.39.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
@@ -41,6 +44,16 @@
   "prettier": {
     "printWidth": 100,
     "singleQuote": true
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:jsx-a11y/recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+      "jsx-a11y",
+      "@typescript-eslint"
+    ]
   },
   "eslintIgnore": [
     "node_modules",
