@@ -41,7 +41,7 @@ function Avatar(props: AvatarProps) {
   );
 }
 
-function AvatarImage(props: React.ImgHTMLAttributes<HTMLImageElement>) {
+function Image(props: React.ImgHTMLAttributes<HTMLImageElement>) {
   const { alt, src, ...imgProps } = props;
 
   const { imageLoadingStatus, onImageLoadingStatusChange } = useAvatarContext();
@@ -63,11 +63,11 @@ function AvatarImage(props: React.ImgHTMLAttributes<HTMLImageElement>) {
   return imageLoadingStatus === 'loaded' ? <img alt={alt} src={src} {...imgProps} /> : null;
 }
 
-function AvatarFallback({ children, ...fallbackProps }: { children: React.ReactNode }) {
+function Fallback({ children, ...fallbackProps }: { children: React.ReactNode }) {
   const { imageLoadingStatus } = useAvatarContext();
-  return imageLoadingStatus === 'error' ? <span {...fallbackProps}>{children}</span> : null;
+  return imageLoadingStatus !== 'loaded' ? <span {...fallbackProps}>{children}</span> : null;
 }
 
 const Root = Avatar;
 
-export { Root, AvatarImage, AvatarFallback };
+export { Root, Image, Fallback };

@@ -1,0 +1,3 @@
+# `react-checkbox`
+
+## Installation

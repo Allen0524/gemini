@@ -20,7 +20,7 @@
     "strictNullChecks": true,
     "pretty": true,
     "target": "ES2018",
-    "types": ["node"],
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "typeRoots": ["./node_modules/@types"]
   }
 }
