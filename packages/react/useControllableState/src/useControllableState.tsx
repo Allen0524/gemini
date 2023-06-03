@@ -11,7 +11,7 @@ function useControllableState<T>({
   defaultProps,
   onChange = () => {},
 }: UseControllableStateParams<T>) {
-  const [unControlledProp, setUnControlledProp] = React.useState<T>();
+  const [unControlledProp, setUnControlledProp] = React.useState<T | undefined>(defaultProps);
   const isControlled = prop !== undefined;
   const value = isControlled ? prop : unControlledProp;
 

@@ -28,6 +28,7 @@
     "@parcel/babel-preset-env": "^2.8.3",
     "@parcel/packager-ts": "2.8.3",
     "@parcel/transformer-typescript-types": "2.8.3",
+    "@stitches/react": "^1.2.8",
     "@storybook/addon-essentials": "^7.0.9",
     "@storybook/addon-interactions": "^7.0.9",
     "@storybook/addon-links": "^7.0.9",

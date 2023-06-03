@@ -1,5 +1,5 @@
 {
-  "name": "@allen0318563/react-checkbox",
+  "name": "@allen0318563/react-context",
   "version": "1.0.0",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -12,10 +12,6 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0"
-  },
-  "dependencies": {
-    "@allen0318563/react-context": "workspace:*",
-    "@allen0318563/react-use-controllable-state": "workspace:*"
   },
   "repository": {
     "type": "git",
