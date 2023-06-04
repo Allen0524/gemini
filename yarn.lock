@@ -39,6 +39,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@allen0318563/react-dropdown-menu@workspace:packages/react/dropdown-menu":
+  version: 0.0.0-use.local
+  resolution: "@allen0318563/react-dropdown-menu@workspace:packages/react/dropdown-menu"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  languageName: unknown
+  linkType: soft
+
+"@allen0318563/react-presence@workspace:packages/react/presence":
+  version: 0.0.0-use.local
+  resolution: "@allen0318563/react-presence@workspace:packages/react/presence"
+  dependencies:
+    "@allen0318563/react-use-controllable-state": "workspace:*"
+    "@babel/runtime": ^7.21.5
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  languageName: unknown
+  linkType: soft
+
 "@allen0318563/react-toggle@workspace:packages/react/toggle":
   version: 0.0.0-use.local
   resolution: "@allen0318563/react-toggle@workspace:packages/react/toggle"

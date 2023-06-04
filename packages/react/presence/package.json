@@ -1,0 +1,24 @@
+{
+  "name": "@allen0318563/react-presence",
+  "version": "1.0.0",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0"
+  },
+  "dependencies": {
+    "@allen0318563/react-use-controllable-state": "workspace:*",
+    "@babel/runtime": "^7.21.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Allen0524/gemini.git"
+  }
+}
