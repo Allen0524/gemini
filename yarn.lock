@@ -20,12 +20,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@allen0318563/react-button@workspace:packages/react/button":
+  version: 0.0.0-use.local
+  resolution: "@allen0318563/react-button@workspace:packages/react/button"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  languageName: unknown
+  linkType: soft
+
 "@allen0318563/react-checkbox@workspace:packages/react/checkbox":
   version: 0.0.0-use.local
   resolution: "@allen0318563/react-checkbox@workspace:packages/react/checkbox"
   dependencies:
     "@allen0318563/react-context": "workspace:*"
     "@allen0318563/react-use-controllable-state": "workspace:*"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  languageName: unknown
+  linkType: soft
+
+"@allen0318563/react-compose-refs@workspace:packages/react/compose-refs":
+  version: 0.0.0-use.local
+  resolution: "@allen0318563/react-compose-refs@workspace:packages/react/compose-refs"
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
   languageName: unknown

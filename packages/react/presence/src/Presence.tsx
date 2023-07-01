@@ -33,7 +33,6 @@ function usePresence(present: boolean) {
     if (hasAnimation) {
       if (node) {
         function handleAnimationEnd() {
-          // if (!present) setPresence(present);
           if (!present) ReactDOM.flushSync(() => setPresence(present));
         }
 
@@ -51,8 +50,6 @@ function usePresence(present: boolean) {
   const callbackRef = React.useCallback((node: HTMLDivElement) => {
     if (node) stylesRef.current = getComputedStyle(node);
     setNode(node);
-
-    console.log(stylesRef.current?.animationName === 'none');
   }, []);
 
   return {

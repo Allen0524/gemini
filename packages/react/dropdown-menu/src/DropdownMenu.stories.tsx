@@ -12,15 +12,17 @@ export default meta;
 export const Basic = () => {
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger>open menu</DropdownMenu.Trigger>
+      <DropdownMenu.Trigger style={{ marginLeft: '200px' }}>open menu</DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content className={animatedContentClass()}>
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
+          {[...Array(10)].map((_, index) => {
+            return (
+              <div key={index} style={{ width: '200px' }}>
+                {index}
+              </div>
+            );
+          })}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
@@ -38,6 +40,7 @@ const animateOut = keyframes({
 });
 
 const animatedContentClass = css({
+  display: 'inline-block',
   boxSizing: 'border-box',
   maxHeight: '200px',
   marginTop: '4px',

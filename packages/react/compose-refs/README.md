@@ -1,0 +1,3 @@
+# `react-compose-refs`
+
+## Installation
