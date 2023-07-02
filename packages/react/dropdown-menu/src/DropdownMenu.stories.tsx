@@ -51,12 +51,7 @@ export const Basic = () => {
         <DropdownMenu.Content className={animatedContentClass()}>
           {data.map(({ id, value }) => {
             return (
-              <DropdownMenu.Item
-                key={id}
-                id={id}
-                value={value}
-                style={{ width: '300px', cursor: 'pointer' }}
-              >
+              <DropdownMenu.Item key={id} id={id} style={{ cursor: 'pointer' }}>
                 {value}
               </DropdownMenu.Item>
             );
@@ -81,9 +76,10 @@ const animatedContentClass = css({
   display: 'inline-block',
   boxSizing: 'border-box',
   maxHeight: '220px',
+  width: '300px',
   marginTop: '4px',
-  overflow: 'hidden',
-  overflowY: 'scroll',
+  overflowX: 'hidden',
+  overflowY: 'auto',
   border: '1px solid red',
 
   '&[data-state="open"]': {

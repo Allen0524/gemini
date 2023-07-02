@@ -106,11 +106,7 @@ const Content = React.forwardRef<HTMLDivElement, ContentProps>(
     const refs = composeRefs(forwardedRef, ref);
     const state = present ? 'open' : 'closed';
 
-    const translateX =
-      anchorInfo.current && ref.current
-        ? anchorInfo.current.left -
-          (ref.current?.getBoundingClientRect()?.width / 2 - anchorInfo.current.width / 2)
-        : 0;
+    const translateX = anchorInfo.current && ref.current ? anchorInfo.current.left : 0;
 
     const translateY = anchorInfo.current
       ? anchorInfo.current?.top + anchorInfo.current?.height
@@ -143,11 +139,11 @@ const Content = React.forwardRef<HTMLDivElement, ContentProps>(
 
 interface ItemProps extends React.HTMLAttributes<HTMLSpanElement> {
   id: string;
-  value: React.ReactNode;
+  children: React.ReactNode;
 }
 
 function Item(props: ItemProps) {
-  const { value, ...itemProps } = props;
+  const { children, ...itemProps } = props;
   const { onValueChange } = useDropdownMenuContext();
 
   function handleOnClick() {
@@ -156,7 +152,7 @@ function Item(props: ItemProps) {
 
   return (
     <div role="button" tabIndex={0} {...itemProps} onClick={handleOnClick}>
-      {value}
+      {children}
     </div>
   );
 }
