@@ -1,6 +1,6 @@
 {
   "name": "@allen0318563/react-dropdown-menu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
