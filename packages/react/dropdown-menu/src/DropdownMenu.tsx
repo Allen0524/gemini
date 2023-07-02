@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Presence } from '../../presence/src';
-import { createAppContext } from '../../context/src';
-import { composeRefs } from '../../compose-refs/src';
-import { useCallbackRef } from '../../useCallbackRef/src';
+import { Presence } from '@allen0318563/react-presence';
+import { createAppContext } from '@allen0318563/react-context';
+import { composeRefs } from '@allen0318563/react-compose-refs';
+import { useCallbackRef } from '@allen0318563/react-use-callback-ref';
 
 type AnchorInfo = {
   left: number;

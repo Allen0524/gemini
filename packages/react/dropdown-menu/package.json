@@ -1,6 +1,6 @@
 {
   "name": "@allen0318563/react-dropdown-menu",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
@@ -18,6 +18,10 @@
     "url": "git+https://github.com/Allen0524/gemini.git"
   },
   "dependencies": {
+    "@allen0318563/react-presence": "workspace:*",
+    "@allen0318563/react-context": "workspace:*",
+    "@allen0318563/react-compose-refs": "workspace:*",
+    "@allen0318563/react-use-callback-ref": "workspace:*",
     "@babel/runtime": "^7.22.5"
   }
 }

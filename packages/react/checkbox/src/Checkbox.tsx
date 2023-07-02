@@ -1,8 +1,6 @@
 import * as React from 'react';
-// import { useControllableState } from '@allen0318563/react-use-controllable-state';
-import { useControllableState } from '../../useControllableState/src';
-// import {} from '@allen0318563/react-context';
-import { createAppContext } from '../../context/src';
+import { useControllableState } from '@allen0318563/react-use-controllable-state';
+import { createAppContext } from '@allen0318563/react-context';
 
 interface CheckboxProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   checked?: boolean;
