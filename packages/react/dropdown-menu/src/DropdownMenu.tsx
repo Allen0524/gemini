@@ -12,6 +12,8 @@ const [DropdownMenuProvider, useDropdownMenuContext] = createAppContext<{
     width?: number;
     height?: number;
   };
+  value: string;
+  onValueChange: (id: string) => void;
   setAnchorInfo: React.Dispatch<React.SetStateAction<{}>>;
 }>();
 
@@ -23,7 +25,15 @@ interface ContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-function DropdownMenu({ children }: { children: React.ReactNode }) {
+function DropdownMenu({
+  value,
+  onValueChange,
+  children,
+}: {
+  value: string;
+  onValueChange: (id: string) => void;
+  children: React.ReactNode;
+}) {
   const [present, setPresent] = React.useState(false);
   const [anchorInfo, setAnchorInfo] = React.useState({});
 
@@ -33,6 +43,8 @@ function DropdownMenu({ children }: { children: React.ReactNode }) {
       setPresent={setPresent}
       anchorInfo={anchorInfo}
       setAnchorInfo={setAnchorInfo}
+      value={value}
+      onValueChange={onValueChange}
     >
       {children}
     </DropdownMenuProvider>
@@ -41,16 +53,34 @@ function DropdownMenu({ children }: { children: React.ReactNode }) {
 
 function Trigger(props: TriggerProps) {
   const { children, ...triggerProps } = props;
+  const ref = React.useRef<HTMLButtonElement>(null);
   const { present, setPresent, setAnchorInfo } = useDropdownMenuContext();
+
+  React.useEffect(() => {
+    if (present) {
+      function clickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setPresent(false);
+        }
+      }
+
+      window.addEventListener('click', clickOutside);
+
+      return () => {
+        window.removeEventListener('click', clickOutside);
+      };
+    }
+  }, [present]);
 
   return (
     <button
       {...triggerProps}
+      ref={ref}
       onClick={(event) => {
         setPresent(!present);
-        console.log(event.currentTarget.getBoundingClientRect());
         setAnchorInfo(event.currentTarget.getBoundingClientRect());
       }}
+      data-state={present ? 'open' : 'closed'}
     >
       {children}
     </button>
@@ -65,10 +95,19 @@ function Portal({ children }: { children: React.ReactElement }) {
 
 const Content = React.forwardRef<HTMLDivElement, ContentProps>(
   ({ children, ...contentProps }, forwardedRef) => {
-    const { present, anchorInfo } = useDropdownMenuContext();
+    const { present, setPresent, anchorInfo, onValueChange } = useDropdownMenuContext();
     const ref = React.useRef<HTMLDivElement>(null);
     const refs = composeRefs(forwardedRef, ref);
     const state = present ? 'open' : 'closed';
+
+    function handleOnClick(event) {
+      const { id } = event.target;
+
+      if (id) {
+        onValueChange(id);
+      }
+      // setPresent(!present);
+    }
 
     return (
       <div
@@ -91,6 +130,7 @@ const Content = React.forwardRef<HTMLDivElement, ContentProps>(
             '--gemini-dropdown-menu-content-anchor-width': anchorInfo?.width || undefined,
           },
         }}
+        onClick={handleOnClick}
       >
         {children}
       </div>
@@ -98,7 +138,20 @@ const Content = React.forwardRef<HTMLDivElement, ContentProps>(
   }
 );
 
-function Item() {}
+interface ItemProps extends React.HTMLAttributes<HTMLSpanElement> {
+  id: string;
+  value: React.ReactNode;
+}
+
+function Item(props: ItemProps) {
+  const { value, ...itemProps } = props;
+
+  return (
+    <div role="button" {...itemProps}>
+      {value}
+    </div>
+  );
+}
 
 const Root = DropdownMenu;
 

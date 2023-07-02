@@ -9,18 +9,56 @@ const meta: Meta<typeof DropdownMenu> = {
 
 export default meta;
 
+const data = [
+  { id: '0', value: 'item 0' },
+  { id: '1', value: 'item 1' },
+  { id: '2', value: 'item 2' },
+  { id: '3', value: 'item 3' },
+  { id: '4', value: 'item 4' },
+];
+
 export const Basic = () => {
+  const [value, setValue] = React.useState('0');
+  const text = data.find((item) => item.id === value)?.value;
+
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger style={{ marginLeft: '200px' }}>open menu</DropdownMenu.Trigger>
+    <DropdownMenu.Root
+      value={value}
+      onValueChange={(id) => {
+        setValue(id);
+      }}
+    >
+      <DropdownMenu.Trigger
+        style={{
+          border: 'none',
+          outline: 'none',
+          padding: '0px',
+          margin: '0px 0px 0px 200px',
+          backgroundColor: 'transparent',
+        }}
+      >
+        <div
+          style={{
+            width: '300px',
+            border: '1px solid black',
+          }}
+        >
+          {text}
+        </div>
+      </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content className={animatedContentClass()}>
-          {[...Array(10)].map((_, index) => {
+          {data.map(({ id, value }) => {
             return (
-              <div key={index} style={{ width: '200px' }}>
-                {index}
-              </div>
+              <DropdownMenu.Item
+                key={id}
+                id={id}
+                value={value}
+                style={{ width: '300px', cursor: 'pointer' }}
+              >
+                {value}
+              </DropdownMenu.Item>
             );
           })}
         </DropdownMenu.Content>
@@ -42,7 +80,7 @@ const animateOut = keyframes({
 const animatedContentClass = css({
   display: 'inline-block',
   boxSizing: 'border-box',
-  maxHeight: '200px',
+  maxHeight: '220px',
   marginTop: '4px',
   overflow: 'hidden',
   overflowY: 'scroll',
