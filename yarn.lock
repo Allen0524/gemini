@@ -34,6 +34,7 @@ __metadata:
   dependencies:
     "@allen0318563/react-context": "workspace:*"
     "@allen0318563/react-use-controllable-state": "workspace:*"
+    "@babel/runtime": ^7.22.5
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
   languageName: unknown
@@ -1597,6 +1598,15 @@ __metadata:
   dependencies:
     regenerator-runtime: ^0.13.11
   checksum: 358f2779d3187f5c67ad302e8f8d435412925d0b991d133c7d4a7b1ddd5a3fda1b6f34537cb64628dfd96a27ae46df105bed3895b8d754b88cacdded8d1129dd
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.22.5":
+  version: 7.22.5
+  resolution: "@babel/runtime@npm:7.22.5"
+  dependencies:
+    regenerator-runtime: ^0.13.11
+  checksum: 12a50b7de2531beef38840d17af50c55a094253697600cee255311222390c68eed704829308d4fd305e1b3dfbce113272e428e9d9d45b1730e0fede997eaceb1
   languageName: node
   linkType: hard
 

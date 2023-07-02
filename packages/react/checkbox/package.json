@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "@allen0318563/react-context": "workspace:*",
-    "@allen0318563/react-use-controllable-state": "workspace:*"
+    "@allen0318563/react-use-controllable-state": "workspace:*",
+    "@babel/runtime": "^7.22.5"
   },
   "repository": {
     "type": "git",
