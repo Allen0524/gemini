@@ -16,5 +16,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Allen0524/gemini.git"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.5"
   }
 }

@@ -59,6 +59,8 @@ __metadata:
 "@allen0318563/react-dropdown-menu@workspace:packages/react/dropdown-menu":
   version: 0.0.0-use.local
   resolution: "@allen0318563/react-dropdown-menu@workspace:packages/react/dropdown-menu"
+  dependencies:
+    "@babel/runtime": ^7.22.5
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
   languageName: unknown
@@ -72,6 +74,7 @@ __metadata:
     "@babel/runtime": ^7.21.5
   peerDependencies:
     react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
   languageName: unknown
   linkType: soft
 
