@@ -85,6 +85,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@allen0318563/react-use-callback-ref@workspace:packages/react/useCallbackRef":
+  version: 0.0.0-use.local
+  resolution: "@allen0318563/react-use-callback-ref@workspace:packages/react/useCallbackRef"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  languageName: unknown
+  linkType: soft
+
 "@allen0318563/react-use-controllable-state@workspace:*, @allen0318563/react-use-controllable-state@workspace:packages/react/useControllableState":
   version: 0.0.0-use.local
   resolution: "@allen0318563/react-use-controllable-state@workspace:packages/react/useControllableState"
