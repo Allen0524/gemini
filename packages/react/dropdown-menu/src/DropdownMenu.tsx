@@ -14,7 +14,7 @@ type AnchorInfo = {
 const [DropdownMenuProvider, useDropdownMenuContext] = createAppContext<{
   present: boolean;
   setPresent: React.Dispatch<React.SetStateAction<boolean>>;
-  anchorInfo: React.MutableRefObject<AnchorInfo | null>;
+  anchorNode: React.MutableRefObject<HTMLDivElement | null>;
   value: string;
   onValueChange: (id: string) => void;
 }>();
@@ -37,13 +37,13 @@ function DropdownMenu({
   children: React.ReactNode;
 }) {
   const [present, setPresent] = React.useState(false);
-  const anchorInfo = React.useRef<AnchorInfo | null>(null);
+  const anchorNode = React.useRef<HTMLDivElement | null>(null);
 
   return (
     <DropdownMenuProvider
       present={present}
       setPresent={setPresent}
-      anchorInfo={anchorInfo}
+      anchorNode={anchorNode}
       value={value}
       onValueChange={onValueChange}
     >
@@ -55,10 +55,10 @@ function DropdownMenu({
 function Trigger(props: TriggerProps) {
   const { children, ...triggerProps } = props;
   const ref = React.useRef<HTMLButtonElement>(null);
-  const { present, setPresent, anchorInfo } = useDropdownMenuContext();
+  const { present, setPresent, anchorNode } = useDropdownMenuContext();
   const callbackRef = useCallbackRef((node) => {
     if (node) {
-      anchorInfo.current = node.getBoundingClientRect();
+      anchorNode.current = node;
     }
   });
   const refs = composeRefs(ref, callbackRef);
@@ -79,6 +79,20 @@ function Trigger(props: TriggerProps) {
     }
   }, [present]);
 
+  React.useEffect(() => {
+    function handleOnResize() {
+      if (present) {
+        setPresent(!present);
+      }
+    }
+
+    window.addEventListener('resize', handleOnResize);
+
+    return () => {
+      window.removeEventListener('resize', handleOnResize);
+    };
+  }, [present]);
+
   return (
     <button
       {...triggerProps}
@@ -87,6 +101,12 @@ function Trigger(props: TriggerProps) {
         setPresent(!present);
       }}
       data-state={present ? 'open' : 'closed'}
+      style={{
+        ...triggerProps.style,
+        ...{
+          '--anchor-width': 300,
+        },
+      }}
     >
       {children}
     </button>
@@ -101,16 +121,15 @@ function Portal({ children }: { children: React.ReactElement }) {
 
 const Content = React.forwardRef<HTMLDivElement, ContentProps>(
   ({ children, ...contentProps }, forwardedRef) => {
-    const { present, anchorInfo } = useDropdownMenuContext();
+    const { present, anchorNode } = useDropdownMenuContext();
     const ref = React.useRef<HTMLDivElement>(null);
     const refs = composeRefs(forwardedRef, ref);
     const state = present ? 'open' : 'closed';
+    const anchorInfo = anchorNode.current?.getBoundingClientRect();
 
-    const translateX = anchorInfo.current && ref.current ? anchorInfo.current.left : 0;
+    const translateX = anchorInfo && ref.current ? anchorInfo.left : 0;
 
-    const translateY = anchorInfo.current
-      ? anchorInfo.current?.top + anchorInfo.current?.height
-      : 0;
+    const translateY = anchorInfo ? anchorInfo?.top + anchorInfo?.height : 0;
 
     return (
       <div
@@ -124,10 +143,10 @@ const Content = React.forwardRef<HTMLDivElement, ContentProps>(
           left: '0',
           transform: `translate(${translateX}px, ${translateY}px)`,
           ...{
-            '--gemini-dropdown-menu-content-anchor-left': anchorInfo?.current?.left,
-            '--gemini-dropdown-menu-content-anchor-top': anchorInfo?.current?.top,
-            '--gemini-dropdown-menu-content-anchor-height': anchorInfo?.current?.height,
-            '--gemini-dropdown-menu-content-anchor-width': anchorInfo?.current?.width,
+            '--gemini-dropdown-menu-anchor-left': `${anchorInfo?.left}px`,
+            '--gemini-dropdown-menu-anchor-top': `${anchorInfo?.top}px`,
+            '--gemini-dropdown-menu-anchor-height': `${anchorInfo?.height}px`,
+            '--gemini-dropdown-menu-anchor-width': `${anchorInfo?.width}px`,
           },
         }}
       >

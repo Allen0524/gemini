@@ -33,13 +33,15 @@ export const Basic = () => {
           border: 'none',
           outline: 'none',
           padding: '0px',
-          margin: '0px 0px 0px 200px',
+          // margin: '0px 0px 0px 200px',
+          width: '100%',
           backgroundColor: 'transparent',
         }}
       >
         <div
           style={{
-            width: '300px',
+            // width: '300px',
+            width: '100%',
             border: '1px solid black',
           }}
         >
@@ -76,7 +78,8 @@ const animatedContentClass = css({
   display: 'inline-block',
   boxSizing: 'border-box',
   maxHeight: '220px',
-  width: '300px',
+  // width: '300px',
+  width: 'var(--gemini-dropdown-menu-anchor-width)',
   marginTop: '4px',
   overflowX: 'hidden',
   overflowY: 'auto',
